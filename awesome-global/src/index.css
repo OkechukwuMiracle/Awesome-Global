@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+  }
+
+  .search-bar {
+    @apply w-0 group-hover:w-[250px] transition-all duration-300 rounded-full group-hover:border group-hover:border-gray-500 px-3 py-1 focus:outline-none border-gray-800 bg-gray-900 group-hover:bg-gray-800  text-gray-400 text-lg font-semibold;
+  }
+
+  .scroll {
+    overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: none;
+  }
+
+  .marquee {
+    overflow-y: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: none;
+      animation: slide 17s linear infinite
+  }
+
+  
+@keyframes slide {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+}
