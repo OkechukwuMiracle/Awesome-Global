@@ -103,7 +103,7 @@ import Lp_V20 from "../../assets/v20.jpg";
 import Lp_V35 from "../../assets/v35.jpg";
 import Lp_V38 from "../../assets/v38.jpg";
 import Lp_V39 from "../../assets/v39.jpg";
-import Lp_V50 from "../../assets/v50.jpg";
+import Lp_V50 from "../../assets/V50.jpg";
 import Lp_V57 from "../../assets/v57.jpg";
 import Lp_V70 from "../../assets/v70.jpg";
 import Lp_V83 from "../../assets/v83.jpg";
