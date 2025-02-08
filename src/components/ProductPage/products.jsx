@@ -124,7 +124,7 @@ import Tg_531 from "../../assets/tg531.jpg";
 import Tg_656 from "../../assets/tg656.jpg";
 import Tg_657 from "../../assets/tg657.jpg";
 import Tg_672 from "../../assets/tg672.jpg";
-import W2 from "../../assets/w2.jpg";
+import W2 from "../../assets/W2.jpg";
 import W15 from "../../assets/w15.jpg";
 import W18 from "../../assets/W18.jpg";
 import W21 from "../../assets/W21.jpg";
