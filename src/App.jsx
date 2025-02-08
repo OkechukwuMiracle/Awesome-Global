@@ -19,7 +19,7 @@ import H_F from "./components/Categories/h_f"
 import Jz from "./components/Categories/jz"
 import Lnboombest from "./components/Categories/Lnboombest"
 import Koleer from "./components/Categories/koleer"
-import Lp from "./components/Categories/lp"
+import Lp from "./components/Categories/LP"
 import Tg from "./components/Categories/tg"
 import Wuf from "./components/Categories/wuf"
 // import { useNavigate } from "react-router-dom";
