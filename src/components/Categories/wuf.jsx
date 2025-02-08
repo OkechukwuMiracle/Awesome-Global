@@ -3,7 +3,7 @@ import Notification from "../Notification/notification";
 import Navbar from "../Navbar/Navbar";
 import Category from "./category";
 import Footer from "../Footer/footer";
-import W2 from "../../assets/w2.jpg";
+import W2 from "../../assets/W2.jpg";
 import W15 from "../../assets/w15.jpg";
 import W18 from "../../assets/W18.jpg";
 import W21 from "../../assets/W21.jpg";
