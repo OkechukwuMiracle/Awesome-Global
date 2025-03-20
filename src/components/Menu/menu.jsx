@@ -6,7 +6,7 @@ const MenuLinks = [
     {
       id: 1,
       name: "Home",
-      link: "/",
+      link: "/dashboard",
     },
     {
       id: 2,

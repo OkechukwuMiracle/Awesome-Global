@@ -1,6 +1,4 @@
-// import React from 'react'
-// import Navbar from "./components/Navbar/Navbar"
-// import { useState } from "react"
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom"
 import HomePage from "./components/HomePage/home"
 import AboutPage from "./components/AboutPage/about"
@@ -25,27 +23,40 @@ import Wuf from "./components/Categories/wuf"
 // import { useNavigate } from "react-router-dom";
 import NewArrival from "./components/Categories/newarrivals";
 import Notification from "./components/Notification/notification";
+import CreateProduct from "./components/ProductPage/createProduct"
 import Footer from "./components/Footer/footer"
 // import DarkMode from './components/DarkMode/DarkMode'
 
 const App = () => {
+  // const handleSearchChange = (event) => {
+  //   onSearch(event.target.value);
+
+  const [products, setProducts] = useState([]); // Manages product state
+
+   // Load products from localStorage when the app starts
+   useEffect(() => {
+    const storedProducts = JSON.parse(localStorage.getItem("products"));
+    if (storedProducts) {
+      setProducts(storedProducts);
+    }
+  }, []);
+
+  // Save products to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
+
   return (
     <div>
-      {/* <button
-        className="bg-blue-500 text-white py-2 px-4 rounded"
-        onClick={() => setIsForgotPasswordOpen(true)}
-      >
-        Forgot Password
-      </button> */}
-      {/* <Navbar/> */}
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/dashboard" element={<HomePage />} />
         <Route exact path="/about" element={<AboutPage />} />
-        <Route exact path="/products" element={<ProductPage />} />
+        <Route exact path="/products" element={<ProductPage products={products} />} />
         <Route exact path="/contact_us" element={<ContactPage />} />
-        <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/" element={<Register/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/forgotpassword" element={<ForgotPassword />} />
+        <Route exact path="/create" element={<CreateProduct products={products} setProducts={setProducts} />} />
         <Route exact path="/menu" element={<Menu />} />
         <Route exact path="/whatsapp" element={<Whatsapp />} />
         <Route exact path="/zealot" element={<Zealot/>} />
@@ -60,7 +71,6 @@ const App = () => {
         <Route exact path="/newarrivals" element={<NewArrival />} />
         <Route exact path="/notification" element={<Notification />} />
         <Route exact path="/footer" element={<Footer />} />
-        {/* <Route exact path="/Navbar" element={<Navbar/>} /> */}
       </Routes>
       <ToastContainer/>
 

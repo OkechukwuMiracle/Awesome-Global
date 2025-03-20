@@ -1,5 +1,5 @@
 // import React from 'react'
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import L10 from "../../assets/WUF-F1.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +60,7 @@ const login = () => {
       try {
         await signInWithEmailAndPassword(auth, users.email, users.password);
         toast.success("Login successfully!!");
-        navigate("/");
+        navigate("/dashboard");
       } catch (error) {
         console.error(error);
         toast.error(error.message || "Failed to Login");
@@ -76,7 +76,7 @@ const login = () => {
       const result = await signInWithPopup(auth, provider);
       console.log(result);
       toast.success("Login successful!!");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Failed to login with Google");
@@ -94,21 +94,21 @@ const login = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="lg:flex dark:bg-black h-screen">
         <div className="hidden lg:flex lg:w-6/12 h-screen">
           <img src={L10} alt="" className="w-full h-full" />
         </div>
         <div className="w-full lg:w-3/5">
           <form onSubmit={loginHandler} className="w-5/6 m-auto pt-8 lg:pt-14">
-            <h1 className="text-4xl font-bold dark:text-white">Log In</h1>
+            <h1 className="text-4xl font-bold text-white">Log In</h1>
             <input
               type="email"
               name="email"
               placeholder="Enter email address"
               onChange={changeHandler}
               value={users.email}
-              className="border w-full py-3 px-4 mt-8 mb-5 font-bold"
+              className="border w-full py-3 px-4 mt-8 mb-5 font-bold outline-none rounded-xl bg-white"
               required
             />
             <div className="flex relative">
@@ -118,10 +118,10 @@ const login = () => {
                 placeholder="Password"
                 onChange={changeHandler}
                 value={users.password}
-                className="border w-full py-3 px-4 mt-8 mb-5 font-bold"
+                className="border w-full py-3 px-4 mt-4 mb-5 font-bold outline-none rounded-xl bg-white"
                 required
               />
-              <div className="absolute right-8 top-12">
+              <div className="absolute right-8 top-9">
                 <button type="button" onClick={handlePasswordVisibility}>
                   {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -130,7 +130,7 @@ const login = () => {
             <div className="flex justify-between mb-7">
               <button
                 type="submit"
-                className="w-2/5 py-2 text-white bg-blue-500 hover:bg-blue-700 font-bold text-2xl"
+                className="py-2 px-4 text-white bg-blue-500 hover:bg-blue-700 font-bold text-xl rounded-xl"
               >
                 Login
               </button>
@@ -138,12 +138,12 @@ const login = () => {
                 Forgot Password
               </button>
             </div>
-            <div className="flex justify-center font-bold dark:text-black">
+            <div className="flex justify-center font-bold dark:text-black ">
               <GoogleButton onClick={signInWithGoogle} />
             </div>
-            <p className="mt-4 text-center font-bold dark:text-white">
+            <p className="mt-4 text-center font-bold text-white">
               Create an account?{" "}
-              <a href="/register" className="text-blue-500">
+              <a href="/" className="text-blue-500 hover:text-blue-300">
                 register
               </a>
             </p>

@@ -1,7 +1,6 @@
 // import React from 'react'
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import L10 from "../../assets/WUF-F1.jpg";
-// import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../FirebaseAuth/firebase";
@@ -89,7 +88,7 @@ const register = () => {
       const result = await signInWithPopup(auth, provider);
       console.log(result);
       toast.success("Login successful");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Failed to login with Google");
@@ -103,14 +102,14 @@ const register = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="lg:flex dark:bg-black h-screen">
         <div className="hidden lg:flex lg:w-6/12 h-screen">
           <img src={L10} alt="" className="w-full h-full" />
         </div>
         <div className="lg:w-3/5">
           <form onSubmit={signupHandler} className="w-5/6 m-auto pt-8 lg:pt-14">
-            <h1 className="text-4xl font-bold dark:text-white">
+            <h1 className="text-4xl font-bold text-white">
               Create an account
             </h1>
             <input
@@ -119,7 +118,7 @@ const register = () => {
               placeholder="Enter email address"
               onChange={changeHandler}
               value={users.email}
-              className="border w-full py-3 px-4 mt-8 mb-5 font-bold"
+              className="border w-full py-3 px-4 mt-8 mb-5 font-bold rounded-xl outline-none"
               required
             />
             <div className="flex relative w-full">
@@ -129,10 +128,10 @@ const register = () => {
                 placeholder="Password"
                 onChange={changeHandler}
                 value={users.password}
-                className="border w-full py-3 px-4 mt-8 mb-5 font-bold"
+                className="border w-full py-3 px-4  font-bold rounded-xl outline-none"
                 required
               />
-              <div className="absolute right-8 top-12">
+              <div className="absolute right-8 top-4">
                 <button type="button" onClick={handlePasswordVisibility}>
                   {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -145,10 +144,10 @@ const register = () => {
                 placeholder="Confirm Password"
                 onChange={changeHandler}
                 value={users.cpassword}
-                className="border w-full py-3 px-4 mt-5 mb-5 font-bold"
+                className="border w-full py-3 px-4 mt-5 mb-5 font-bold rounded-xl outline-none"
                 required
               />
-              <div className="absolute right-8 top-12">
+              <div className="absolute right-8 top-9">
                 <button type="button" onClick={handlePasswordVisibility}>
                   {isPasswordVisible ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -156,16 +155,16 @@ const register = () => {
             </div>
             <button
               type="submit"
-              className="w-full mb-7 py-2 text-white bg-blue-500 hover:bg-blue-700 font-bold text-2xl"
+              className="w-full mb-7 py-2 text-white bg-blue-500 hover:bg-blue-700 font-bold text-2xl rounded-xl"
             >
               Register
             </button>
             <div className="flex justify-center font-bold dark:text-black">
               <GoogleButton onClick={signInWithGoogle} />
             </div>
-            <p className="mt-4 text-center font-bold dark:text-white">
+            <p className="mt-4 text-center font-bold text-white">
               Already have an account?{" "}
-              <a href="/login" className="text-blue-500">
+              <a href="/login" className="text-blue-500 hover:text-blue-700">
                 Login
               </a>
             </p>

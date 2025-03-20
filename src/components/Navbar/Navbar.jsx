@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../FirebaseAuth/firebase"; // Adjust the path
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { IoIosCreate } from "react-icons/io";
 
 const MenuLinks = [
   {
     id: 1,
     name: "Home",
-    link: "/",
+    link: "/dashboard",
   },
   {
     id: 2,
@@ -102,11 +103,11 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search for product"
-                className="search-bar"
+                className="search-bar text-sm"
               />
 
               <svg
-                className="size-6 w-5 inline-block text-gray-400 absolute top-2 duration-200 right-0"
+                className="size-6 w-3 inline-block text-gray-400 absolute top-1 duration-200 right-0"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -119,6 +120,10 @@ const Navbar = () => {
                   d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                 />
               </svg>
+            </div>
+
+            <div onClick={()=> navigate('/create')} className="cursor-pointer">
+            <IoIosCreate className="text-xl"/>
             </div>
 
             {/* cart section */}
@@ -154,7 +159,7 @@ const Navbar = () => {
                     }}
                   />
                 ) : (
-                  <FaUserCircle className="text-3xl" />
+                  <FaUserCircle className="text-xl" />
                 )}
               </button>
 
